@@ -1,0 +1,383 @@
+/* FONT */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+
+/* COLORES (BS5) */
+$primary: #0069C0;
+$light: #FFFFFF;
+
+
+/* BOOTSTRAP */
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+/* UTILIDADES */
+@mixin grid($row, $column, $rowg, $columng) {
+    display: grid;
+    grid-template-rows: $row;
+    grid-template-columns: $column;
+    grid-row-gap: $rowg;
+    grid-column-gap: $columng;
+}
+
+@mixin flex($dir, $justify, $align) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+/* UNIVERSAL */
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
+}
+
+p{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+h2{
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+
+}
+
+h1{
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+.anchor{
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+}
+
+.buttonPrimary{
+    background-color: $primary;
+    border: 3px solid $primary;
+    border-radius: 50px;
+    color: $light;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0.6rem;
+    transition: 0.4s;
+    &:hover{
+        background-color: $light;
+        color: #0069C0;
+    }
+}
+
+.buttonSecondary{
+    @extend .buttonPrimary;
+    border: 3px solid $light;
+}
+/* ======= MOBILE ======== */
+/* NAV (MENU) */
+.navbar-logo{
+    width: 175px;
+    height: 75px;
+    transition: 0.4s;
+    &:hover{
+        opacity: 0.3;
+    }
+}
+.nav-link{
+    transition: 0.4s;
+    &:hover{
+        opacity: 0.3;
+    }
+}
+
+/* HEADER */
+.info{
+    background-color: #0069C0;
+    padding: 1rem 0;
+    &-text{
+        height: 100%;
+        color: $light;
+        @include flex(row, center, center);
+    }
+    p{
+        margin-bottom: 0;
+    }
+}
+
+.header{
+    margin-top: 2.5rem;
+    @include grid(auto auto, 1fr, 20px, 0);
+    &-text{
+        @include flex(column, center, stretch);
+        &Primary{
+            color: $primary;
+        }
+    }
+    &-img{
+        width: 100%;
+        transition: 0.4s;
+        &:hover{
+            opacity: 0.5;
+        }
+    }
+}
+
+/* CARDS */
+.cards{
+    margin-top: 40px;
+    @include grid(1fr 1fr 1fr, 1fr, 20px, 0);
+}
+
+.card{
+    border: 3px solid $primary;
+    border-radius: 45px;
+    padding: 20px;
+    @include flex(column, center, center);
+    &-title{
+        color: $primary;
+    }
+    a{
+        display: inline-block;
+        width: 100%;
+    }
+    &-image{
+        width: 100px;
+        margin-bottom: 20px;
+        transition: 0.4s;
+        color: #0069C0;
+        &:hover{
+            opacity: 0.3;
+        }
+    }
+}
+
+/* AD */
+.ad{
+    margin-top: 40px;
+    &-content{
+        background: url(../img/add.png);
+        background-size: cover;
+        border-radius: 35px;
+        width: 100%;
+        height: 200px;
+        padding: 20px;
+        @include flex(column, center, center);
+    }
+
+    &-title{
+        color: $light;
+        margin-bottom: 0;
+    }
+}
+
+/* SERVICES */
+.services{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    &-step{
+        font-size: 30px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+    &-number{
+        color: $primary;
+    }
+    &-images{
+        @include flex(row, center, center);
+    }
+
+    &-image{
+        width: 100%;
+        transition: 0.4s;
+        &:hover{
+            opacity: 0.7;
+        }
+        &:nth-child(1){
+            margin-right: 10px;
+        }
+        &:nth-child(2){
+            margin-left: 10px;
+        }
+    }
+}
+
+/* US */
+.us{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background-color: $primary;
+    border-radius: 30px;
+    color: #FFFFFF;
+    padding: 20px;
+    &-title{
+        text-align: center;
+    }
+    &-content{
+        @include grid(auto auto, 1fr, 20px, 0);
+    }
+    &-image{
+        width: 100%;
+        transition: 0.4s;
+        &:hover{
+            opacity: 0.7;
+        }
+    }
+    a{
+        display: block;
+    }
+}
+
+/* CONTACT */
+.contact{
+    margin-bottom: 40px;
+    &-title{
+        text-align: center;
+    }
+    &-content{
+        margin-top: 15px;
+        a{
+            text-decoration: none;
+        }
+    }
+}
+
+/* FOOTER */
+.footer{
+    background-color: $primary;
+    padding: 20px;
+    &-content{
+        @include flex(column, center, center);
+    }
+    &-social{
+        @include flex(row, space-around, center);
+    }
+    &-logo{
+        transition: 0.4s;
+        &:hover{
+            opacity: 0.3;
+        }
+    }
+    &-icon{
+        width: 64px;
+        margin: 20px;
+        transition: 0.4s;
+        &:hover{
+            opacity: 0.3;
+        }
+        &:nth-child(3){
+            cursor: not-allowed;
+        }
+    }
+}
+
+/* ======= TABLET ======== */
+@media only screen and (min-width: 768px) {
+    /* HEADER */
+    .header{
+        &-img{
+            max-height: 350px;
+        }
+    }
+
+    /* CARDS */
+    .cards{
+        @include grid(1fr, 1fr 1fr 1fr, 0, 20px);
+    }
+
+    /* US */
+    .us{
+        &-content{
+            @include grid(1fr, 50% 50%, 0, 20px);
+            align-items: center;
+        }
+        &-image{
+            height: 100%;
+        }
+    }
+
+    /* FOOTER */
+    .footer{
+        &-content{
+            @include flex(row, space-between, center);
+        }
+    }
+
+}
+
+/* ======= SMALL DESKTOP ======== */
+@media only screen and (min-width: 992px) {
+    /* HEADER */
+    .header{
+        @include grid(1fr, 50% 50%, 0, 20px);
+    }
+    
+    /* CARDS */
+    .cards{
+        @include grid(1fr, 1fr 1fr 1fr, 0, 40px);
+        justify-content: space-between;
+    }
+
+    /* AD */
+    .ad{
+        &-content{
+            height: 370px;
+            transition: 0.4s;
+            &:hover{
+                opacity: 0.8;
+            }
+        }
+        &-title{
+            font-size: 48px;
+        }
+    }
+
+    /* SERVICES */
+    .services{
+        @include grid(auto, 50% 50%, 20px, 20px);
+        &-images{
+            @include flex(column, center, center);
+        }
+        &-image{
+            &:nth-child(1){
+                margin-right: 0px;
+                margin-bottom: 20px;
+            }
+            &:nth-child(2){
+                margin-left: 0px;
+            }
+        }
+        &-text{
+            @include flex(column, center, flex-start);
+        }
+    }
+
+    /* CONTACT */
+    .contact{
+        @include grid(1fr, 50% 50%, 0, 20px);
+        align-items: center;
+    }
+
+}
+
+/* ======= LARGE DESKTOP ======== */
+@media only screen and (min-width: 1200px){
+    /* UNIVERSAL */
+    p{
+        font-size: 20px;
+    }
+
+    h2{
+        font-size: 28px;
+    }
+
+    h1{
+        font-size: 36px;
+    }
+}
