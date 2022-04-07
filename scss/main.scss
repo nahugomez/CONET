@@ -190,7 +190,8 @@ h1{
         color: $primary;
     }
     &-images{
-        @include flex(row, center, center);
+        @include grid(1fr, 50% 50%, 0, 10px);
+        overflow: hidden;
     }
 
     &-image{
@@ -198,12 +199,6 @@ h1{
         transition: 0.4s;
         &:hover{
             opacity: 0.7;
-        }
-        &:nth-child(1){
-            margin-right: 10px;
-        }
-        &:nth-child(2){
-            margin-left: 10px;
         }
     }
 }
@@ -342,16 +337,7 @@ h1{
     .services{
         @include grid(auto, 50% 50%, 20px, 20px);
         &-images{
-            @include flex(column, center, center);
-        }
-        &-image{
-            &:nth-child(1){
-                margin-right: 0px;
-                margin-bottom: 20px;
-            }
-            &:nth-child(2){
-                margin-left: 0px;
-            }
+            @include grid(1fr 1fr, 1fr, 20px, 0);
         }
         &-text{
             @include flex(column, center, flex-start);
